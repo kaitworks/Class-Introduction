@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Communication Course — Kait English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1A1A2E;--ink2:#3D3D5C;--muted:#8888AA;
+  --gold:#2563EB;--gold-l:#EFF6FF;--gold-m:#93C5FD;
+  --indigo:#1E40AF;--indigo-l:#DBEAFE;
+  --bg:#F8FAFC;--white:#ffffff;
+  --radius:12px;--radius-lg:20px;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;background:rgba(248,250,252,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E2E8F0}
+.nav-brand{font-weight:700;font-size:15px;color:var(--ink);letter-spacing:-.01em}
+.nav-brand span{color:var(--gold)}
+.nav-cta{background:#1E40AF;color:#fff;font-size:13px;font-weight:600;padding:.5rem 1.25rem;border-radius:30px;text-decoration:none;transition:opacity .15s}
+.nav-cta:hover{opacity:.85}
+
+/* HERO */
+.hero{padding:3rem 2rem 2rem;max-width:960px;margin:0 auto}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.hero-eyebrow::before{content:'';width:28px;height:1.5px;background:var(--gold-m)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4rem);font-weight:600;line-height:1.1;letter-spacing:-.03em;color:var(--ink);margin-bottom:1.5rem;max-width:680px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:17px;color:var(--ink2);max-width:520px;line-height:1.75;margin-bottom:2.5rem;font-weight:400}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:var(--ink);color:#fff;font-size:14px;font-weight:600;padding:.75rem 1.75rem;border-radius:30px;text-decoration:none;transition:all .2s;display:inline-block}
+.btn-primary:hover{background:var(--indigo)}
+.btn-ghost{background:transparent;color:var(--ink);font-size:14px;font-weight:500;padding:.75rem 1.75rem;border-radius:30px;text-decoration:none;border:1.5px solid #CBD5E1;transition:all .2s;display:inline-block}
+.btn-ghost:hover{border-color:var(--ink)}
+
+/* SECTIONS */
+section{padding:2.5rem 2rem;max-width:960px;margin:0 auto}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:600;color:var(--ink);line-height:1.2;letter-spacing:-.02em;margin-bottom:1rem}
+.section-sub{font-size:16px;color:var(--ink2);max-width:540px;line-height:1.75}
+.divider{width:100%;height:1px;background:#E2E8F0;max-width:960px;margin:0 auto}
+
+/* WHAT YOU GET — session structure */
+.session-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:#E2E8F0;border:1px solid #E2E8F0;border-radius:var(--radius);overflow:hidden;margin-top:2.5rem}
+.session-col{background:var(--white);padding:1.5rem 1.4rem}
+.session-badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:1rem}
+.badge-speak{background:#DBEAFE;color:#1E40AF}
+.badge-flow{background:#DBEAFE;color:#1E40AF}
+.badge-pres{background:var(--gold-l);color:#1E40AF}
+.session-col h3{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:.5rem}
+.session-col p{font-size:13px;color:var(--ink2);line-height:1.7}
+.session-detail{margin-top:1rem;display:flex;flex-direction:column;gap:6px}
+.sdt{font-size:12px;color:var(--ink2);padding:6px 10px;background:var(--bg);border-radius:6px;line-height:1.5}
+.sdt strong{color:var(--ink);display:block;font-size:11.5px;margin-bottom:1px}
+
+/* LEARN CARDS */
+.learn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;margin-top:2.5rem}
+.learn-card{background:var(--white);border:1px solid #E2E8F0;border-radius:var(--radius);padding:1.35rem;position:relative;overflow:hidden}
+.learn-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#93C5FD,#2563EB)}
+.learn-num{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--muted);margin-bottom:.5rem}
+.learn-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:.4rem}
+.learn-desc{font-size:13px;color:var(--ink2);line-height:1.65}
+
+/* WHO */
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2.5rem}
+.who-card{background:var(--white);border:1px solid #E2E8F0;border-radius:var(--radius);padding:1.25rem 1.35rem}
+.who-icon{font-size:22px;margin-bottom:.6rem}
+.who-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:.35rem}
+.who-desc{font-size:13px;color:var(--ink2);line-height:1.65}
+
+/* FORMAT */
+.format-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:2rem}
+.format-card{background:var(--white);border:1px solid #E2E8F0;border-radius:var(--radius);padding:1.1rem 1.25rem;text-align:center}
+.format-icon{font-size:24px;margin-bottom:.5rem}
+.format-label{font-size:13px;font-weight:600;color:var(--ink)}
+.format-val{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* TOPICS */
+.topics-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:2rem}
+.topic-chip{font-size:12.5px;color:var(--ink2);background:var(--white);border:1px solid #E2E8F0;border-radius:30px;padding:5px 14px;display:flex;align-items:center;gap:6px}
+.topic-chip .letter{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;color:var(--gold)}
+
+/* CTA */
+.cta-banner{background:var(--ink);color:#fff;padding:4rem 2.5rem;border-radius:var(--radius-lg);text-align:center;max-width:960px;margin:3rem auto}
+.cta-banner h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;margin-bottom:.75rem;letter-spacing:-.02em}
+.cta-banner p{font-size:15px;color:rgba(255,255,255,.7);max-width:440px;margin:0 auto 2rem;line-height:1.7}
+.btn-cta{background:var(--gold-m);color:var(--ink);font-size:14px;font-weight:700;padding:.85rem 2rem;border-radius:30px;text-decoration:none;display:inline-block;transition:opacity .2s}
+.btn-cta:hover{opacity:.9}
+
+footer{text-align:center;padding:2rem;font-size:12.5px;color:var(--muted);border-top:1px solid #E2E8F0}
+
+@media(max-width:700px){
+  nav{padding:.75rem 1.25rem}
+  .hero{padding:3.5rem 1.25rem 3rem}
+  section{padding:3.5rem 1.25rem}
+  .session-grid{grid-template-columns:1fr}
+  .cta-banner{padding:2.5rem 1.5rem;margin:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Nói tiếng Anh <em>tự tin</em><br>trong mọi tình huống thực tế</h1>
+  <div style="display:flex;gap:12px;margin-top:1.75rem;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:8px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:30px;padding:8px 18px">
+      <span style="width:7px;height:7px;border-radius:50%;background:#2563EB;flex-shrink:0"></span>
+      <span style="font-size:13px;font-weight:600;color:#1E40AF;letter-spacing:.02em">Coherence</span>
+      <span style="font-size:12.5px;color:#3B82F6">— nói có cấu trúc, ý nối ý</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:30px;padding:8px 18px">
+      <span style="width:7px;height:7px;border-radius:50%;background:#2563EB;flex-shrink:0"></span>
+      <span style="font-size:13px;font-weight:600;color:#1E40AF;letter-spacing:.02em">Fluency</span>
+      <span style="font-size:12.5px;color:#3B82F6">— nói tự nhiên, không bị đứt</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<!-- FORMAT -->
+<section id="format">
+  <div class="section-eyebrow">Hình thức học</div>
+  <div class="section-title">Linh hoạt, cá nhân hoá, hiệu quả</div>
+  <div class="format-grid">
+    <div class="format-card">
+      <div class="format-icon">📆</div>
+      <div class="format-label">12–15 buổi / tháng</div>
+      <div class="format-val">Lịch linh hoạt theo tuần</div>
+    </div>
+    <div class="format-card">
+      <div class="format-icon">💻</div>
+      <div class="format-label">Online</div>
+      <div class="format-val">Google Meet</div>
+    </div>
+    <div class="format-card">
+      <div class="format-icon">👥</div>
+      <div class="format-label">Lớp 1:2 · 90 phút</div>
+      <div class="format-val">Tối đa 2 học viên</div>
+    </div>
+    <div class="format-card">
+      <div class="format-icon">👨‍👩‍👧</div>
+      <div class="format-label">Lớp 1:3 · 2 tiếng</div>
+      <div class="format-val">Tối đa 3 học viên</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+<div class="divider"></div>
+<div class="divider"></div>
+<div class="divider"></div>
+<!-- WHO -->
+<section id="who">
+  <div class="section-eyebrow">Dành cho ai?</div>
+  <div class="section-title">Khoá học này phù hợp nếu bạn...</div>
+  <div class="who-grid">
+    <div class="who-card">
+      <div class="who-icon">📘</div>
+      <div class="who-title">Trình độ gần B1</div>
+      <div class="who-desc">Đọc hiểu được, biết ngữ pháp cơ bản — nhưng khi nói vẫn chậm, hay dừng giữa câu và không biết triển khai ý.</div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">💼</div>
+      <div class="who-title">Đi làm, cần dùng tiếng Anh</div>
+      <div class="who-desc">Họp, báo cáo, hay trao đổi với đồng nghiệp nước ngoài — hiểu nhưng chưa tự tin phản hồi ngay tại chỗ.</div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">🎓</div>
+      <div class="who-title">Sinh viên sắp ra trường</div>
+      <div class="who-desc">Chuẩn bị phỏng vấn hoặc môi trường quốc tế — cần nói có cấu trúc, rõ ý, không cần phải nói nhiều.</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="divider"></div>
+<div class="divider"></div>
+<div class="divider"></div>
+<div class="divider"></div>
+<!-- WHAT YOU LEARN -->
+<section>
+  <div class="section-eyebrow">Bạn sẽ học được gì?</div>
+  <div class="section-title">Kỹ năng thực tế, dùng được ngay</div>
+  <div class="learn-grid">
+    <div class="learn-card">
+      <div class="learn-num">01</div>
+      <div class="learn-title">Cấu trúc trả lời rõ ràng</div>
+      <div class="learn-desc">PREP & SITA — hai framework giúp bạn trả lời bất kỳ câu hỏi nào có tổ chức, không bị mất phương hướng giữa chừng.</div>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">02</div>
+      <div class="learn-title">Nói liên tục không bị đứt</div>
+      <div class="learn-desc">Luyện nói 4 phút liên tục từ cue card — xây phản xạ sắp xếp ý nhanh và duy trì mạch nói tự nhiên.</div>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">05</div>
+      <div class="learn-title">Phrases & cụm từ giao tiếp</div>
+      <div class="learn-desc">Mở đầu, chuyển ý, phản bác, kết luận — các cụm từ thực tế được phân loại theo chức năng để bạn dùng ngay, không phải nhớ máy móc.</div>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">06</div>
+      <div class="learn-title">Tư duy Abstraction Ladder</div>
+      <div class="learn-desc">Biết khi nào nên nói ý lớn, khi nào nên xuống chi tiết — kỹ năng khiến câu trả lời vừa sâu vừa thuyết phục, không bị nhàm hay lan man.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="divider"></div>
+<div class="divider"></div>
+<!-- SESSION STRUCTURE -->
+<section id="structure">
+  <div class="section-eyebrow">Mỗi tuần học gồm gì?</div>
+  <div class="section-title">Ba phần, một mục tiêu: bạn nói được</div>
+
+  <div class="session-grid">
+    <div class="session-col">
+      <span class="session-badge badge-speak">Phần 1 · Speaking</span>
+      <h3>Luyện nói theo chủ đề</h3>
+      <p>Mỗi buổi luyện 2 topic — mỗi topic có bộ câu hỏi thực tế, áp dụng cấu trúc PREP hoặc SITA.</p>
+      <div class="session-detail">
+        <div class="sdt"><strong>Ví dụ chủ đề</strong>Work from home · Leadership · Creativity · Burnout</div>
+        <div class="sdt"><strong>Bạn luyện được</strong>Phản xạ ngôn ngữ + cách triển khai ý có logic</div>
+        <div class="sdt"><strong>Từ vựng đi kèm</strong>8 từ vựng theo ngữ cảnh, có phiên âm IPA</div>
+      </div>
+    </div>
+    <div class="session-col">
+      <span class="session-badge badge-flow">Phần 2 · Flow</span>
+      <h3>Nói các topic random</h3>
+      <p>Luyện phản xạ với 1 topic random — không chuẩn bị trước, nói ngay, xây khả năng ứng biến tự nhiên.</p>
+      <div class="session-detail">
+        <div class="sdt"><strong>Ví dụ đề bài</strong>Describe a challenge you overcame · A person who changed your view</div>
+        <div class="sdt"><strong>Bạn luyện được</strong>Sắp xếp ý nhanh + duy trì mạch nói không bị đứt</div>
+        <div class="sdt"><strong>Từ tuần 5</strong>Có trong tất cả buổi Speaking từ giữa khoá</div>
+      </div>
+    </div>
+    <div class="session-col">
+      <span class="session-badge badge-pres">Phần 3 · Presentation</span>
+      <h3>Trình bày & bảo vệ quan điểm</h3>
+      <p>Một lần mỗi tuần — chọn chủ đề xã hội thực tế, trình bày 2–3 phút, rồi Q&A với giáo viên.</p>
+      <div class="session-detail">
+        <div class="sdt"><strong>Ví dụ chủ đề</strong>AI & jobs · Hustle culture · Cancel culture · University worth it?</div>
+        <div class="sdt"><strong>Bạn luyện được</strong>Lập luận có cấu trúc + giữ vững quan điểm khi bị phản biện</div>
+        <div class="sdt"><strong>Cấu trúc dùng</strong>PREP — Point · Reason · Example · Point</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="divider"></div>
+<div class="divider"></div>
+<div class="divider"></div>
+<!-- 24 TOPICS -->
+<section>
+  <div class="section-title">Từ cuộc sống đến nghề nghiệp</div>
+  <div class="topics-wrap">
+    <div class="topic-chip"><span class="letter">A</span> Work from home</div>
+    <div class="topic-chip"><span class="letter">B</span> Hobbies & stress</div>
+    <div class="topic-chip"><span class="letter">C</span> Learning new things</div>
+    <div class="topic-chip"><span class="letter">D</span> Social media</div>
+    <div class="topic-chip"><span class="letter">E</span> Food & routines</div>
+    <div class="topic-chip"><span class="letter">F</span> Travel</div>
+    <div class="topic-chip"><span class="letter">G</span> Work culture</div>
+    <div class="topic-chip"><span class="letter">H</span> Movies & entertainment</div>
+    <div class="topic-chip"><span class="letter">I</span> Goals & motivation</div>
+    <div class="topic-chip"><span class="letter">J</span> Technology</div>
+    <div class="topic-chip"><span class="letter">K</span> Leadership</div>
+    <div class="topic-chip"><span class="letter">L</span> City & environment</div>
+    <div class="topic-chip"><span class="letter">M</span> Money & finance</div>
+    <div class="topic-chip"><span class="letter">N</span> Career paths</div>
+    <div class="topic-chip"><span class="letter">O</span> Failure & learning</div>
+    <div class="topic-chip"><span class="letter">P</span> Change & adaptability</div>
+    <div class="topic-chip"><span class="letter">Q</span> Creativity</div>
+    <div class="topic-chip"><span class="letter">R</span> Stress & boundaries</div>
+    <div class="topic-chip"><span class="letter">S</span> Networking</div>
+    <div class="topic-chip"><span class="letter">T</span> Cultural differences</div>
+    <div class="topic-chip"><span class="letter">U</span> Digital transformation</div>
+    <div class="topic-chip"><span class="letter">V</span> Productivity</div>
+    <div class="topic-chip"><span class="letter">W</span> Self-development</div>
+    <div class="topic-chip"><span class="letter">X</span> Future of work</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+
+<footer></footer>
+
+</body>
+</html>
+<div class="divider"></div>
+<div class="divider"></div>
+
+
+<div class="divider"></div>
+
+
+
+<footer></footer>
+
+</body>
+</html>
+<div class="divider"></div>
+
+
+<div class="divider"></div>
+
+
+
+<footer></footer>
+
+</body>
+</html>
